@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#86A4CD">
+<title>Брахма-мухурта · Подольск</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg-top: #83A4CF;
+  --bg-upper: #7BA0CD;
+  --bg-middle: #7196C3;
+  --bg-lower: #6486B6;
+  --bg-bottom: #5877A6;
+  --glow-core: #FAFBFD;
+  --glow-white: #ECF3FB;
+  --glow-ice: #D8F4FF;
+  --glow-blue: #9EC9EB;
+  --pearl-white: #F8F9FF;
+  --pearl-pink: #F4D5DC;
+  --pearl-lilac: #D9B9DF;
+  --pearl-blue: #C6DCFF;
+  --paper: #83A4CF;
+  --paper-deep: #6486B6;
+  --ink: #F5F7FA;
+  --ink-soft: #ECF3FB;
+  --rule: rgba(236, 243, 251, 0.28);
+  --ember: #F4D5DC;
+  --serif: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 25% 34% at 44% 45%, rgba(248,249,255,0.78) 0%, rgba(236,243,251,0.48) 24%, rgba(216,244,255,0.16) 51%, transparent 100%),
+    radial-gradient(ellipse 42% 58% at 44% 45%, rgba(244,190,207,0.32) 0%, rgba(244,213,220,0.3) 26%, rgba(217,185,223,0.23) 48%, rgba(198,220,255,0.08) 62%, transparent 80%),
+    radial-gradient(ellipse 37% 52% at 44% 45%, rgba(244,213,220,0.4) 0%, rgba(217,185,223,0.3) 27%, rgba(198,220,255,0.1) 50%, transparent 76%),
+    linear-gradient(180deg, #83A4CF 0%, #7A9BC8 44%, #6486B6 100%);
+  color: var(--ink);
+  font-family: var(--sans);
+  padding: clamp(20px, 4vw, 48px);
+}
+body::before {
+  content: "";
+  position: fixed;
+  width: min(720px, 74vw);
+  height: min(720px, 74vw);
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgba(198,220,255,0.12);
+  box-shadow: 0 0 0 34px rgba(200,230,255,0.025), 0 0 0 74px rgba(244,213,220,0.035), 0 0 48px rgba(194,232,255,0.2), inset 0 0 35px rgba(248,249,255,0.05);
+  filter: blur(7px);
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: "";
+  position: fixed;
+  width: 640px;
+  height: 470px;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center, rgba(250,251,253,0.88) 0%, rgba(248,249,255,0.58) 16%, rgba(216,244,255,0.26) 38%, transparent 72%),
+    radial-gradient(ellipse at 44% 52%, rgba(244,190,207,0.35) 0%, rgba(244,213,220,0.3) 28%, rgba(217,185,223,0.2) 54%, transparent 78%),
+    linear-gradient(110deg, rgba(216,244,255,0.2) 0%, rgba(248,249,255,0.18) 14%, rgba(244,213,220,0.34) 32%, rgba(217,185,223,0.3) 50%, rgba(198,220,255,0.18) 72%, rgba(233,250,255,0.16) 100%);
+  opacity: 0.86;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0,0,0,0.88) 28%, rgba(0,0,0,0.42) 57%, transparent 78%);
+  mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0,0,0,0.88) 28%, rgba(0,0,0,0.42) 57%, transparent 78%);
+  filter: blur(34px) drop-shadow(0 0 14px rgba(248,249,255,0.58)) drop-shadow(0 0 30px rgba(182,228,255,0.42)) drop-shadow(0 0 48px rgba(214,179,224,0.3));
+  pointer-events: none;
+  z-index: 0;
+}
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  min-height: calc(100vh - 2 * clamp(20px, 4vw, 48px));
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 32px;
+}
+/* masthead */
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 13px;
+  letter-spacing: .04em;
+}
+.masthead .title {
+  display: block;
+  font-family: var(--serif);
+  font-size: 28.6px;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+.masthead .place { display: block; font-size: 16.9px; color: var(--ink-soft); line-height: 1.2; margin-top: 4px; }
+.masthead .clock-block { text-align: right; }
+#live-clock {
+  display: block;
+  font-family: var(--sans);
+  font-size: 28.6px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: .02em;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.masthead .clock-caption { display: block; font-size: 16.9px; color: var(--ink-soft); line-height: 1.2; margin-top: 4px; }
+/* hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+.kicker {
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin: 0 0 16px;
+}
+#period {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(60px, 9vw, 120px);
+  line-height: .92;
+  letter-spacing: -.02em;
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
+}
+#date {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 18px;
+  text-transform: capitalize;
+}
+#status {
+  display: inline-block;
+  margin-top: 26px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ember);
+  color: var(--ember);
+  font-size: 14px;
+}
+/* sunrise arc diagram */
+.arc-card {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: clamp(22px, 3vw, 32px);
+}
+.arc-card svg { display: block; width: 100%; height: auto; }
+.arc-caption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+#sunrise { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+/* details table */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--ink);
+}
+.fact {
+  padding: 18px 20px 0 0;
+  border-right: 1px solid var(--rule);
+}
+.fact:last-child { border-right: 0; }
+.fact:not(:first-child) { padding-left: 20px; }
+.fact dt {
+  font-size: 8.4px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.fact dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(15.4px, 1.68vw, 19.6px);
+  font-variant-numeric: tabular-nums;
+}
+/* weekday specification */
+.weekday-spec {
+  border-top: 1px solid var(--ink);
+  padding-top: 20px;
+}
+.weekday-spec h2 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 500;
+}
+.spec-note {
+  max-width: 760px;
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.day-card {
+  min-height: 118px;
+  padding: 14px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.day-card h3 {
+  margin: 0 0 5px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.day-card .sanskrit {
+  margin: 0 0 7px;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.1;
+  color: var(--pearl-white);
+}
+.day-card p:last-child {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.daily-card {
+  border: 1px solid var(--rule);
+  padding: clamp(16px, 2.5vw, 26px);
+  background: rgba(100,134,182,0.24);
+}
+.daily-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.daily-card-head h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 500;
+}
+.daily-card-head p { margin: 5px 0 0; color: var(--ink-soft); font-size: 12px; }
+.daily-window {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--serif);
+  font-size: 20px !important;
+  color: var(--pearl-white) !important;
+}
+.daily-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+  padding-top: 16px;
+}
+.daily-grid > div { min-width: 0; }
+.daily-label {
+  color: var(--ink-soft);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.daily-grid p { margin: 5px 0 0; font-size: 13px; line-height: 1.6; }
+.daily-grid #daily-accent { color: var(--pearl-white); font-family: var(--serif); font-size: 20px; }
+.daily-grid #daily-practice { color: var(--pearl-white); }
+.source-note {
+  margin: 14px 0 0;
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+/* footer */
+.foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+}
+#explanation { margin: 0 0 6px; }
+noscript { color: var(--ember); }
+@media (max-width: 800px) {
+  body::after {
+    width: min(640px, 128vw);
+    height: min(470px, 94vw);
+    top: 38%;
+    filter: blur(26px) drop-shadow(0 0 12px rgba(248,249,255,0.46)) drop-shadow(0 0 24px rgba(182,228,255,0.34)) drop-shadow(0 0 38px rgba(214,179,224,0.28));
+  }
+  body::before {
+    top: 38%;
+    width: min(720px, 112vw);
+    height: min(720px, 112vw);
+  }
+  .hero { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr; }
+  .fact, .fact:not(:first-child) { padding: 16px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .daily-card-head { flex-direction: column; gap: 8px; }
+  .daily-window { font-size: 18px !important; }
+  .daily-grid { grid-template-columns: 1fr; gap: 14px; }
+  .daily-grid #daily-accent { font-size: 18px; }
+  .foot { grid-template-columns: 1fr; }
+  .day-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .masthead { grid-template-columns: 1fr auto; gap: 12px; }
+}
+@media (max-width: 480px) {
+  body { padding: 20px 16px; overflow-x: hidden; }
+  .page { min-height: calc(100svh - 40px); gap: 26px; }
+  .masthead .title { font-size: 25px; }
+  .masthead .place, .masthead .clock-caption { font-size: 12px; }
+  #live-clock { font-size: 22px; }
+  #period { font-size: clamp(52px, 15vw, 68px); }
+  .day-grid { grid-template-columns: 1fr; }
+  .day-card { min-height: auto; padding: 12px; }
+  .arc-caption { gap: 10px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <div>
+      <span class="title">Брахма-мухурта</span>
+      <span class="place">Подольск, Московская область · UTC+3</span>
+    </div>
+    <div class="clock-block">
+      <time id="live-clock" aria-label="Текущее московское время">--:--:--</time>
+      <span class="clock-caption">Московское время</span>
+    </div>
+  </header>
+
+  <main class="hero">
+    <section aria-label="Период брахма-мухурты">
+      <p class="kicker">Период практики</p>
+      <p id="period">—</p>
+      <div id="date">Расчёт…</div>
+      <div id="status" role="status"></div>
+    </section>
+
+    <aside class="arc-card" aria-label="Восход солнца">
+      <svg viewBox="0 0 400 220" role="img" aria-label="Дуга восхода солнца над горизонтом">
+        <line x1="20" y1="180" x2="380" y2="180" stroke="#F5F7FA" stroke-width="1"/>
+        <path d="M60 180 A140 140 0 0 1 340 180" fill="none" stroke="#B9CBE6" stroke-width="1" stroke-dasharray="3 5"/>
+        <path d="M150 180 A70 70 0 0 1 250 180" fill="none" stroke="#F4C2B0" stroke-width="2"/>
+        <circle cx="200" cy="180" r="6" fill="#F4C2B0"/>
+        <text x="20" y="206" font-size="11" fill="#DCE6F4">ночь</text>
+        <text x="380" y="206" font-size="11" fill="#DCE6F4" text-anchor="end">день</text>
+      </svg>
+      <div class="arc-caption"><span>Восход солнца</span><span id="sunrise">—</span></div>
+    </aside>
+  </main>
+
+  <section class="facts" aria-label="Подробности">
+    <dl class="fact" style="margin:0"><dt>До начала</dt><dd id="countdown">—</dd></dl>
+    <dl class="fact" style="margin:0"><dt>Следующее обновление</dt><dd id="refresh">—</dd></dl>
+    <dl class="fact" style="margin:0"><dt>Часовой пояс</dt><dd>Москва, UTC+3</dd></dl>
+  </section>
+
+  <section class="weekday-spec" aria-labelledby="weekday-title">
+    <h2 id="weekday-title">Ежедневная спецификация</h2>
+    <p class="spec-note">Практика и пояснение для выбранной даты брахма-мухурты. Данные рассчитаны для Подольска, Московская область, часовой пояс Europe/Moscow; рекомендация является редакционной и не заменяет медицинскую или традиционно-ритуальную консультацию.</p>
+    <article class="daily-card" aria-live="polite">
+      <div class="daily-card-head"><div><h3 id="daily-date">Расчёт…</h3><p id="daily-traditional-day">—</p></div><p class="daily-window" id="daily-window">—</p></div>
+      <div class="daily-grid">
+        <div><span class="daily-label">Акцент практики</span><p id="daily-accent">—</p></div>
+        <div><span class="daily-label">Рекомендация</span><p id="daily-practice">—</p></div>
+        <div><span class="daily-label">Панчанга</span><p id="daily-panchanga">—</p></div>
+        <div><span class="daily-label">Пояснение</span><p id="daily-explanation">—</p></div>
+      </div>
+    </article>
+    <p class="source-note"><strong>Источник:</strong> московский календарь из архива <code>Brahma_Podolsk_2026_COMPLETE.zip</code>. Практические формулировки редакционные: это учебные идеи для тайцзи, цигун и спокойной медитации, а не канонические предписания и не доказанное влияние календарных факторов.</p>
+  </section>
+
+  <footer class="foot">
+    <div>
+      <p id="explanation"></p>
+    </div>
+    <div>
+      <p>Расчёт для Подольска: 55,42419° с. ш., 37,55472° в. д. Восход рассчитан для ровного горизонта с учётом стандартной атмосферной рефракции; реальное время может отличаться на несколько минут. Период 48 минут, начинается за 96 минут до восхода.</p>
+    </div>
+  </footer>
+  <noscript>Для расчёта времени включите JavaScript в браузере.</noscript>
+</div>
+
+<script src="Brahma_Podolsk_2026_COMPLETE/podolsk-calendar.js"></script>
+<script>
+'use strict';
+const MINUTE = 60000;
+const HOUR = 60 * MINUTE;
+const DAY = 24 * HOUR;
+const LATITUDE = 55.42419;
+const LONGITUDE = 37.55472;
+const ZONE = 'Europe/Moscow';
+const rad = angle => angle * Math.PI / 180;
+const deg = angle => angle * 180 / Math.PI;
+const timeFormat = new Intl.DateTimeFormat('ru-RU', { timeZone: ZONE, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+const clockFormat = new Intl.DateTimeFormat('ru-RU', { timeZone: ZONE, hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' });
+const dateFormat = new Intl.DateTimeFormat('ru-RU', { timeZone: ZONE, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+const shortDate = new Intl.DateTimeFormat('ru-RU', { timeZone: ZONE, day: 'numeric', month: 'long' });
+let podolskCalendar = new Map(Object.entries(window.PODOLSK_DAILY || {}));
+let podolskCalendarReady = podolskCalendar.size > 0;
+
+function utcDateKey(dayUtc) {
+  return new Date(dayUtc).toISOString().slice(0, 10);
+}
+
+function localMoscowTimestamp(dateKey, hhmm) {
+  const [year, month, day] = dateKey.split('-').map(Number);
+  const [hour, minute] = hhmm.split(':').map(Number);
+  return Date.UTC(year, month - 1, day, hour - 3, minute);
+}
+
+
+// NOAA solar equations: solar declination and equation of time.
+function solarPosition(timestamp) {
+  const julian = timestamp / DAY + 2440587.5;
+  const t = (julian - 2451545) / 36525;
+  const l = ((280.46646 + t * (36000.76983 + t * .0003032)) % 360 + 360) % 360;
+  const m = 357.52911 + t * (35999.05029 - .0001537 * t);
+  const e = .016708634 - t * (.000042037 + .0000001267 * t);
+  const c = Math.sin(rad(m)) * (1.914602 - t * (.004817 + .000014 * t))
+    + Math.sin(rad(2 * m)) * (.019993 - .000101 * t) + Math.sin(rad(3 * m)) * .000289;
+  const omega = 125.04 - 1934.136 * t;
+  const lambda = l + c - .00569 - .00478 * Math.sin(rad(omega));
+  const obliquity = 23 + (26 + (21.448 - t * (46.815 + t * (.00059 - t * .001813))) / 60) / 60
+    + .00256 * Math.cos(rad(omega));
+  const declination = Math.asin(Math.sin(rad(obliquity)) * Math.sin(rad(lambda)));
+  const y = Math.tan(rad(obliquity) / 2) ** 2;
+  const equation = 4 * deg(y * Math.sin(2 * rad(l)) - 2 * e * Math.sin(rad(m))
+    + 4 * e * y * Math.sin(rad(m)) * Math.cos(2 * rad(l))
+    - .5 * y * y * Math.sin(4 * rad(l)) - 1.25 * e * e * Math.sin(2 * rad(m)));
+  return { declination, equation };
+}
+
+function sunriseForDay(dayUtc) {
+  let minutes = 360;
+  for (let i = 0; i < 5; i++) {
+    const { declination, equation } = solarPosition(dayUtc + minutes * MINUTE);
+    const cosHour = (Math.cos(rad(90.833)) / (Math.cos(rad(LATITUDE)) * Math.cos(declination)))
+      - Math.tan(rad(LATITUDE)) * Math.tan(declination);
+    if (cosHour < -1 || cosHour > 1) throw new Error('На эту дату восход отсутствует.');
+    minutes = 720 - 4 * (LONGITUDE + deg(Math.acos(cosHour))) - equation;
+  }
+  // Round once to minutes so all displayed period boundaries remain consistent.
+  return Math.round((dayUtc + minutes * MINUTE) / MINUTE) * MINUTE;
+}
+
+function periodForDay(dayUtc) {
+  const sunrise = sunriseForDay(dayUtc);
+  const start = sunrise - 96 * MINUTE;
+  return { dayUtc, sunrise, start, end: sunrise - 48 * MINUTE, activation: start - 20 * HOUR };
+}
+
+function periodForDayWithArchive(dayUtc) {
+  const fallback = periodForDay(dayUtc);
+  const row = podolskCalendar.get(utcDateKey(dayUtc));
+  if (!row) return fallback;
+  const key = utcDateKey(dayUtc);
+  const start = localMoscowTimestamp(key, row.window_night15.slice(0, 5));
+  const end = localMoscowTimestamp(key, row.window_night15.slice(6, 11));
+  const sunrise = localMoscowTimestamp(key, row.sunrise + ':00');
+  return { dayUtc, sunrise, start, end, activation: start - 20 * HOUR };
+}
+
+function moscowDay(now) {
+  const local = new Date(now + 3 * HOUR);
+  return Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate());
+}
+
+function selectPeriod(now) {
+  const today = moscowDay(now);
+  let selected = periodForDayWithArchive(today);
+  // Show the latest period whose 20-hour announcement window has begun.
+  for (let offset = 1; offset <= 2; offset++) {
+    const candidate = periodForDayWithArchive(today + offset * DAY);
+    if (now >= candidate.activation) selected = candidate;
+  }
+  return { selected, next: periodForDayWithArchive(selected.dayUtc + DAY) };
+}
+
+function updateDailyCard(selected) {
+  const key = utcDateKey(selected.dayUtc);
+  const row = podolskCalendar.get(key);
+  const dateNode = document.getElementById('daily-date');
+  const dayNode = document.getElementById('daily-traditional-day');
+  const windowNode = document.getElementById('daily-window');
+  const accentNode = document.getElementById('daily-accent');
+  const practiceNode = document.getElementById('daily-practice');
+  const panchangaNode = document.getElementById('daily-panchanga');
+  const explanationNode = document.getElementById('daily-explanation');
+  if (!row) {
+    dateNode.textContent = dateFormat.format(selected.sunrise);
+    dayNode.textContent = 'Архивный календарь Подольска доступен с 22 октября по 31 декабря 2026 года.';
+    windowNode.textContent = timeFormat.format(selected.start) + '–' + timeFormat.format(selected.end);
+    accentNode.textContent = 'Для этой даты нет записи в архиве';
+    practiceNode.textContent = 'Используется базовый расчёт времени; ежедневная рекомендация появится при наличии московской записи.';
+    panchangaNode.textContent = '—';
+    explanationNode.textContent = podolskCalendarReady ? 'Дата вне диапазона загруженного календаря.' : 'Загрузка календаря Подольска…';
+    return;
+  }
+  dateNode.textContent = `${row.date} · ${row.weekday}`;
+  dayNode.textContent = `Традиционная вара до восхода: ${row.traditional_pre_sunrise_weekday || row.traditional_weekday} · Восход ${row.sunrise}`;
+  windowNode.textContent = row.window_night15;
+  accentNode.textContent = row.practice_accent || row.focus;
+  practiceNode.textContent = row.practice_recommendation || row.practice;
+  panchangaNode.textContent = `${row.tithi} · ${row.nakshatra} (${row.nakshatra_deity || row.deity}) · ${row.yoga} · ${row.karana} · Луна ${row.moon_illum_percent || row.illumination}%`;
+  explanationNode.textContent = row.explanation.replace(/\s+/g, ' ').trim();
+}
+
+function render() {
+  try {
+    const now = Date.now();
+    const liveClock = document.getElementById('live-clock');
+    liveClock.textContent = clockFormat.format(now);
+    liveClock.dateTime = new Date(now).toISOString();
+    const { selected: calculated, next: calculatedNext } = selectPeriod(now);
+    const selectedKey = utcDateKey(calculated.dayUtc);
+    const archived = podolskCalendar.get(selectedKey);
+    const selected = archived ? {
+      ...calculated,
+      start: localMoscowTimestamp(selectedKey, archived.window_night15.slice(0, 5)),
+      end: localMoscowTimestamp(selectedKey, archived.window_night15.slice(6, 11)),
+      sunrise: localMoscowTimestamp(selectedKey, archived.sunrise + ':00')
+    } : calculated;
+    const next = calculatedNext;
+    document.getElementById('date').textContent = dateFormat.format(selected.sunrise);
+    document.getElementById('period').textContent = timeFormat.format(selected.start) + ' – ' + timeFormat.format(selected.end);
+    document.getElementById('sunrise').textContent = timeFormat.format(selected.sunrise);
+    updateDailyCard(selected);
+    const active = now >= selected.start && now < selected.end;
+    document.getElementById('status').textContent = active ? 'Сейчас брахма-мухурта' : now >= selected.end ? 'Период завершён' : 'Ближайшая практика';
+    const remaining = Math.max(0, Math.ceil((selected.start - now) / 1000));
+    const hours = Math.floor(remaining / 3600);
+    const minutes = Math.floor(remaining % 3600 / 60);
+    const seconds = remaining % 60;
+    document.getElementById('countdown').textContent = active ? 'Период идёт' : now >= selected.end ? 'Завершён' : `${hours} ч ${String(minutes).padStart(2, '0')} мин ${String(seconds).padStart(2, '0')} с`;
+    document.getElementById('refresh').textContent = shortDate.format(next.activation) + ', ' + timeFormat.format(next.activation);
+    document.getElementById('explanation').textContent = 'Дата и период переключаются автоматически за 20 часов до начала следующей брахма-мухурты. Если страница была закрыта, актуальный расчёт появится при открытии.';
+  } catch (error) {
+    document.getElementById('status').textContent = 'Не удалось рассчитать время';
+    document.getElementById('explanation').textContent = error.message;
+  }
+}
+render();
+setInterval(render, 1000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) render(); });
+window.addEventListener('focus', render);
+window.addEventListener('pageshow', render);
+</script>
+</body>
+</html>
