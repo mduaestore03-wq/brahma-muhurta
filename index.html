@@ -391,7 +391,7 @@ noscript { color: var(--ember); }
 
   <section class="weekday-spec" aria-labelledby="weekday-title">
     <h2 id="weekday-title">Ежедневная спецификация</h2>
-    <p class="spec-note">Практика и пояснение для выбранной даты брахма-мухурты. Данные рассчитаны для Подольска, Московская область, часовой пояс Europe/Moscow; рекомендация является редакционной и не заменяет медицинскую или традиционно-ритуальную консультацию.</p>
+    <p class="spec-note">Практика и пояснение для выбранной даты брахма-мухурты. Данные рассчитаны для Подольска, Московская область, часовой пояс Europe/Moscow; рекомендация является не решением а инструментом наработки свойств.</p>
     <article class="daily-card" aria-live="polite">
       <div class="daily-card-head"><div><h3 id="daily-date">Расчёт…</h3><p id="daily-traditional-day">—</p></div><p class="daily-window" id="daily-window">—</p></div>
       <div class="daily-grid">
@@ -531,7 +531,14 @@ function updateDailyCard(selected) {
     explanationNode.textContent = podolskCalendarReady ? 'Дата вне диапазона загруженного календаря.' : 'Загрузка календаря Подольска…';
     return;
   }
-  dateNode.textContent = `${key} · ${row.weekday}`;
+  const [year, month, day] = key.split('-').map(Number);
+const formattedDate = new Intl.DateTimeFormat('ru-RU', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+}).format(new Date(Date.UTC(year, month - 1, day)));
+
+dateNode.textContent = `${formattedDate} · ${row.weekday}`;
   dayNode.textContent = `Традиционная вара до восхода: ${row.traditional_pre_sunrise_weekday || row.traditional_weekday} · Восход ${row.sunrise}`;
   windowNode.textContent = row.window_night15;
   accentNode.textContent = row.practice_accent || row.focus;
