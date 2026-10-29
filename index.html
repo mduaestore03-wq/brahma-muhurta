@@ -531,7 +531,7 @@ function updateDailyCard(selected) {
     explanationNode.textContent = podolskCalendarReady ? 'Дата вне диапазона загруженного календаря.' : 'Загрузка календаря Подольска…';
     return;
   }
-  dateNode.textContent = `${row.date} · ${row.weekday}`;
+  dateNode.textContent = `${key} · ${row.weekday}`;
   dayNode.textContent = `Традиционная вара до восхода: ${row.traditional_pre_sunrise_weekday || row.traditional_weekday} · Восход ${row.sunrise}`;
   windowNode.textContent = row.window_night15;
   accentNode.textContent = row.practice_accent || row.focus;
